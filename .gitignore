@@ -1,0 +1,7 @@
+DAFGU Migration Status.xcodeproj/*.mode1v3
+DAFGU Migration Status.xcodeproj/*.pbxuser
+DAFGU Migration Status.xcodeproj/project.xcworkspace/xcuserdata
+DAFGU Migration Status.xcodeproj/xcuserdata
+DAFGUMigrationStatus-*.pkg
+DAFGU_Migration_Status_Prefix.pch
+build
