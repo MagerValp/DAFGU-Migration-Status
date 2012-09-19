@@ -31,7 +31,7 @@
 @property (assign) NSTimer *timer;
 @property (assign) BOOL hasWarnedNotExists;
 
-- (void)startWatching;
+- (void)startListening;
 - (void)readStatus;
 - (void)setStatus:(int)status message:(NSString *)msg;
 

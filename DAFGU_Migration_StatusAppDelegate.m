@@ -18,8 +18,10 @@
 @synthesize hasWarnedNotExists;
 
 
-// We're watching this plist for status updates.
+// Status updates are written to this plist.
 NSString * const plistPath = @"/tmp/DAFGUMigrationStatus.plist";
+// We also listen for status updates to a shared object registered with this name.
+NSString * const listenerName = @"se.gu.it.dafgu_migration_status";
 
 
 - (void)awakeFromNib
@@ -46,32 +48,24 @@ NSString * const plistPath = @"/tmp/DAFGUMigrationStatus.plist";
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    self.hasWarnedNotExists = NO;
     [self setStatus:kDMStatusUnknown message:NSLocalizedString(@"Starting…", @"Starting…")];
-    // Check once per second if the plist exists, and if so start watching for changes.
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startWatching) userInfo:nil repeats:YES]; 
+    // Initialize with cached status if it exists.
+    if ([[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
+        [self readStatus];
+    }
+    // Start listening for status updates.
+    [self startListening];
 }
 
-- (void)startWatching
+- (void)startListening
 {
-    if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
-        // If the plist doesn't exist exit and try again.
-        if (self.hasWarnedNotExists == NO) {
-            NSLog(@"%@ does not exist", plistPath);
-            self.hasWarnedNotExists = YES;
-            [self setStatus:kDMStatusUnknown message:NSLocalizedString(@"Waiting…", @"Waiting…")];
-        }
-        return;
+    NSConnection *conn = [NSConnection defaultConnection];
+    [conn setRootObject:self];
+    if ([conn registerName:listenerName] == false) {
+        [self setStatus:kDMStatusError message:@"Listener failed"];
     }
-    NSLog(@"Watching %@", plistPath);
-    // Stop timer.
     [self.timer invalidate];
-    // Read current status.
     [self readStatus];
-    // Start watching plist for changes.
-	//self.watcher = [[FileWatcher alloc] init];
-    self.watcher = [[PollWatcher alloc] init];
-    [self.watcher watchFileAtPath:plistPath target:self action:@selector(readStatus)];
 }
 
 - (void)readStatus
