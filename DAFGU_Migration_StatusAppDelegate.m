@@ -97,22 +97,22 @@ NSString * const plistPath = @"/tmp/DAFGUMigrationStatus.plist";
     
     status = [plistDict objectForKey:@"DAFGUMigrationStatus"];
     if (![status isKindOfClass:[NSNumber class]]) {
-        [self setStatus:kDMStatusUnknown message:@"status is not an integer"];
+        [self setStatus:kDMStatusUnknown message:@"Status is not an integer"];
         return;
     }
     statusInt = [status integerValue];
     if (statusInt < kDMStatusMin || statusInt > kDMStatusMax) {
-        [self setStatus:kDMStatusError message:@"illegal status value"];
+        [self setStatus:kDMStatusError message:@"Illegal status value"];
         return;
     }
     
     msg = [plistDict objectForKey:@"DAFGUMigrationMessage"];
     if (![msg isKindOfClass:[NSString class]]) {
-        [self setStatus:kDMStatusUnknown message:@"message is not a string"];
+        [self setStatus:kDMStatusUnknown message:@"Message is not a string"];
         return;
     }
     if ([msg length] > 100) {
-        [self setStatus:kDMStatusError message:@"message is too long"];
+        [self setStatus:kDMStatusError message:@"Message is too long"];
         return;
     }
     
