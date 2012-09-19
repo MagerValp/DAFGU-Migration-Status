@@ -8,6 +8,7 @@ import syslog
 
 
 AGENT_PATH = "/Library/LaunchAgents/se.gu.it.DAFGU-Migration-Status.plist"
+APP_PATH = "/Applications/Utilities/DAFGU Migration Status.app"
 
 
 def log_init(ident):
@@ -57,18 +58,26 @@ def main(argv):
     # Load LaunchAgent in each user context.
     for (username, pid) in loginwindows:
         log_info("Loading launchagent for %s" % repr(username))
-        log_info("launchctl commandline: %s" % repr(("/bin/launchctl",
-                              "bsexec", str(pid),
-                              "chroot", "-u", username, "/",
-                              "launchctl", "load", AGENT_PATH,
-                              )))
-        p = subprocess.Popen(("/bin/launchctl",
-                              "bsexec", str(pid),
-                              "chroot", "-u", username, "/",
-                              "launchctl", "load", AGENT_PATH,
-                              ))
-        p.communicate()
-        log_info("launchctl returned %d" % p.returncode)
+        for action in ("unload", "load"):
+            log_info("launchctl commandline: %s" % " ".join(("/bin/launchctl",
+                                  "bsexec", str(pid),
+                                  "chroot", "-u", username, "/",
+                                  "launchctl", action, AGENT_PATH,
+                                  )))
+            p = subprocess.Popen(("/bin/launchctl",
+                                  "bsexec", str(pid),
+                                  "chroot", "-u", username, "/",
+                                  "launchctl", action, AGENT_PATH,
+                                  ))
+            p.communicate()
+            log_info("launchctl returned %d" % p.returncode)
+            if action == "load" and p.returncode != 0:
+                # If loading the LaunchAgent fails, fall back to open.
+                subprocess.call(("/bin/launchctl",
+                                 "bsexec", str(pid),
+                                 "chroot", "-u", username, "/",
+                                 "open", APP_PATH,
+                                 ))
     
     return 0
 
