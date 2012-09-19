@@ -1,0 +1,77 @@
+#!/usr/bin/python
+
+
+import sys
+import subprocess
+import re
+import syslog
+
+
+AGENT_PATH = "/Library/LaunchAgents/se.gu.it.DAFGU-Migration-Status.plist"
+
+
+def log_init(ident):
+    syslog.openlog(ident,
+                   syslog.LOG_CONS | syslog.LOG_PERROR,
+                   syslog.LOG_DAEMON)
+
+def log(prio, msg):
+    syslog.syslog(prio, msg.encode("utf-8"))
+
+def log_info(msg):
+    log(syslog.LOG_NOTICE, msg)
+
+def log_warn(msg):
+    log(syslog.LOG_WARNING, msg)
+
+def log_error(msg):
+    log(syslog.LOG_ERR, msg)
+
+
+re_login = re.compile(r'^(?P<username>\S+)\s+(?P<pid>\d+).+loginwindow.app', re.I)
+
+def main(argv):
+    log_init("DAFGU Migration Status postinstall")
+    
+    # Make sure we're installing on a live system.
+    if argv[3] != "/":
+        log_info("Installing on %s, not a live system" % repr(argv[3]))
+        return 0
+    else:
+        log_info("Installing live system")
+    
+    # Get process list.
+    p = subprocess.Popen(("/bin/ps", "auxww"),
+                         stdout=subprocess.PIPE)
+    (out, _) = p.communicate()
+    
+    # Find all loginwindow processes.
+    loginwindows = list()
+    for line in out.splitlines():
+        m = re_login.search(line)
+        if m:
+            username = m.group("username")
+            pid = int(m.group("pid"))
+            loginwindows.append((username, pid))
+    
+    # Load LaunchAgent in each user context.
+    for (username, pid) in loginwindows:
+        log_info("Loading launchagent for %s" % repr(username))
+        log_info("launchctl commandline: %s" % repr(("/bin/launchctl",
+                              "bsexec", str(pid),
+                              "chroot", "-u", username, "/",
+                              "launchctl", "load", AGENT_PATH,
+                              )))
+        p = subprocess.Popen(("/bin/launchctl",
+                              "bsexec", str(pid),
+                              "chroot", "-u", username, "/",
+                              "launchctl", "load", AGENT_PATH,
+                              ))
+        p.communicate()
+        log_info("launchctl returned %d" % p.returncode)
+    
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv))
+    

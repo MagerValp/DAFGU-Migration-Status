@@ -1,0 +1,371 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		256AC3DA0F4B6AC300CF3369 /* DAFGU_Migration_StatusAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* DAFGU_Migration_StatusAppDelegate.m */; };
+		665D816614E1A8C900F46EAE /* DMS.icns in Resources */ = {isa = PBXBuildFile; fileRef = 665D816514E1A8C900F46EAE /* DMS.icns */; };
+		666FF9DA14E1512600BF4C6C /* StatusActive0.png in Resources */ = {isa = PBXBuildFile; fileRef = 666FF9D514E1512600BF4C6C /* StatusActive0.png */; };
+		666FF9DB14E1512600BF4C6C /* StatusActive1.png in Resources */ = {isa = PBXBuildFile; fileRef = 666FF9D614E1512600BF4C6C /* StatusActive1.png */; };
+		666FF9DC14E1512600BF4C6C /* StatusError.png in Resources */ = {isa = PBXBuildFile; fileRef = 666FF9D714E1512600BF4C6C /* StatusError.png */; };
+		666FF9DD14E1512600BF4C6C /* StatusOK.png in Resources */ = {isa = PBXBuildFile; fileRef = 666FF9D814E1512600BF4C6C /* StatusOK.png */; };
+		666FF9DE14E1512600BF4C6C /* StatusUnknown.png in Resources */ = {isa = PBXBuildFile; fileRef = 666FF9D914E1512600BF4C6C /* StatusUnknown.png */; };
+		666FF9E114E1560000BF4C6C /* PollWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 666FF9E014E1560000BF4C6C /* PollWatcher.m */; };
+		6676CDC214E1ADBF00F60325 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6676CDC414E1ADBF00F60325 /* Credits.rtf */; };
+		6676CDC814E1AFAF00F60325 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6676CDCA14E1AFAF00F60325 /* Localizable.strings */; };
+		66F035FC14D95F4900AEDA92 /* FileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F035FB14D95F4900AEDA92 /* FileWatcher.m */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		256AC3D80F4B6AC300CF3369 /* DAFGU_Migration_StatusAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAFGU_Migration_StatusAppDelegate.h; sourceTree = "<group>"; };
+		256AC3D90F4B6AC300CF3369 /* DAFGU_Migration_StatusAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAFGU_Migration_StatusAppDelegate.m; sourceTree = "<group>"; };
+		256AC3F00F4B6AF500CF3369 /* DAFGU_Migration_Status_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAFGU_Migration_Status_Prefix.pch; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		665D816514E1A8C900F46EAE /* DMS.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = DMS.icns; sourceTree = "<group>"; };
+		666FF9D514E1512600BF4C6C /* StatusActive0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusActive0.png; sourceTree = "<group>"; };
+		666FF9D614E1512600BF4C6C /* StatusActive1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusActive1.png; sourceTree = "<group>"; };
+		666FF9D714E1512600BF4C6C /* StatusError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusError.png; sourceTree = "<group>"; };
+		666FF9D814E1512600BF4C6C /* StatusOK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusOK.png; sourceTree = "<group>"; };
+		666FF9D914E1512600BF4C6C /* StatusUnknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusUnknown.png; sourceTree = "<group>"; };
+		666FF9DF14E1560000BF4C6C /* PollWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollWatcher.h; sourceTree = "<group>"; };
+		666FF9E014E1560000BF4C6C /* PollWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollWatcher.m; sourceTree = "<group>"; };
+		6676CDC114E1AD9E00F60325 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		6676CDC314E1ADBF00F60325 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		6676CDC514E1ADCB00F60325 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = sv; path = sv.lproj/Credits.rtf; sourceTree = "<group>"; };
+		6676CDC914E1AFAF00F60325 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6676CDCB14E1AFB300F60325 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		66F035FA14D95F4900AEDA92 /* FileWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileWatcher.h; sourceTree = "<group>"; };
+		66F035FB14D95F4900AEDA92 /* FileWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileWatcher.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* DAFGU_Migration_Status-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DAFGU_Migration_Status-Info.plist"; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* DAFGU Migration Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DAFGU Migration Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				256AC3D80F4B6AC300CF3369 /* DAFGU_Migration_StatusAppDelegate.h */,
+				256AC3D90F4B6AC300CF3369 /* DAFGU_Migration_StatusAppDelegate.m */,
+				66F035FA14D95F4900AEDA92 /* FileWatcher.h */,
+				66F035FB14D95F4900AEDA92 /* FileWatcher.m */,
+				666FF9DF14E1560000BF4C6C /* PollWatcher.h */,
+				666FF9E014E1560000BF4C6C /* PollWatcher.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* DAFGU Migration Status.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* DAFGU Migration Status */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = "DAFGU Migration Status";
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				256AC3F00F4B6AF500CF3369 /* DAFGU_Migration_Status_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6676CDC414E1ADBF00F60325 /* Credits.rtf */,
+				665D816514E1A8C900F46EAE /* DMS.icns */,
+				666FF9D514E1512600BF4C6C /* StatusActive0.png */,
+				666FF9D614E1512600BF4C6C /* StatusActive1.png */,
+				666FF9D714E1512600BF4C6C /* StatusError.png */,
+				666FF9D814E1512600BF4C6C /* StatusOK.png */,
+				666FF9D914E1512600BF4C6C /* StatusUnknown.png */,
+				8D1107310486CEB800E47090 /* DAFGU_Migration_Status-Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				6676CDCA14E1AFAF00F60325 /* Localizable.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* DAFGU Migration Status */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "DAFGU Migration Status" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DAFGU Migration Status";
+			productInstallPath = "$(HOME)/Applications";
+			productName = "DAFGU Migration Status";
+			productReference = 8D1107320486CEB800E47090 /* DAFGU Migration Status.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Göteborgs universitet";
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "DAFGU Migration Status" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				sv,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* DAFGU Migration Status */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* DAFGU Migration Status */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				666FF9DA14E1512600BF4C6C /* StatusActive0.png in Resources */,
+				666FF9DB14E1512600BF4C6C /* StatusActive1.png in Resources */,
+				666FF9DC14E1512600BF4C6C /* StatusError.png in Resources */,
+				666FF9DD14E1512600BF4C6C /* StatusOK.png in Resources */,
+				666FF9DE14E1512600BF4C6C /* StatusUnknown.png in Resources */,
+				665D816614E1A8C900F46EAE /* DMS.icns in Resources */,
+				6676CDC214E1ADBF00F60325 /* Credits.rtf in Resources */,
+				6676CDC814E1AFAF00F60325 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				256AC3DA0F4B6AC300CF3369 /* DAFGU_Migration_StatusAppDelegate.m in Sources */,
+				66F035FC14D95F4900AEDA92 /* FileWatcher.m in Sources */,
+				666FF9E114E1560000BF4C6C /* PollWatcher.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+				6676CDC114E1AD9E00F60325 /* sv */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		6676CDC414E1ADBF00F60325 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6676CDC314E1ADBF00F60325 /* English */,
+				6676CDC514E1ADCB00F60325 /* sv */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		6676CDCA14E1AFAF00F60325 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6676CDC914E1AFAF00F60325 /* English */,
+				6676CDCB14E1AFB300F60325 /* sv */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = DAFGU_Migration_Status_Prefix.pch;
+				INFOPLIST_FILE = "DAFGU_Migration_Status-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				PRODUCT_NAME = "DAFGU Migration Status";
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = DAFGU_Migration_Status_Prefix.pch;
+				INFOPLIST_FILE = "DAFGU_Migration_Status-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				PRODUCT_NAME = "DAFGU Migration Status";
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "DAFGU Migration Status" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "DAFGU Migration Status" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

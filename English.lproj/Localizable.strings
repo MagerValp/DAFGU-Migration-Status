@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  DAFGU Migration Status
+
+  Created by Per Olofsson on 2012-02-07.
+  Copyright (c) 2012 Göteborgs universitet. All rights reserved.
+*/
+
+
+/* Starting… */
+"Starting…" = "Starting…";
+
+/* Waiting… */
+"Waiting…" = "Waiting…";
+
+"Last backup interrupted" = "Last backup interrupted";
+
+"Waiting for network…" = "Waiting for network…";
+
+"Checking network…" = "Checking network…";
+
+"Running backup…" = "Copying files…";
+
+"Finishing…" = "Finishing…";
+
+"Backup failed" = "File copy failed";
