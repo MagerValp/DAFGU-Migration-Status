@@ -41,7 +41,7 @@ enum {
     kDMStatusError,
     kDMStatusActive
 };
-const int kDMStatusMin = kDMStatusUnknown;
-const int kDMStatusMax = kDMStatusActive;
+#define kDMStatusMin kDMStatusUnknown
+#define kDMStatusMax kDMStatusActive
 
 @end
