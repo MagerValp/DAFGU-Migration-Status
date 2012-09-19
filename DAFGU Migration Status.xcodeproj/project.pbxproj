@@ -15,10 +15,8 @@
 		666FF9DC14E1512600BF4C6C /* StatusError.png in Resources */ = {isa = PBXBuildFile; fileRef = 666FF9D714E1512600BF4C6C /* StatusError.png */; };
 		666FF9DD14E1512600BF4C6C /* StatusOK.png in Resources */ = {isa = PBXBuildFile; fileRef = 666FF9D814E1512600BF4C6C /* StatusOK.png */; };
 		666FF9DE14E1512600BF4C6C /* StatusUnknown.png in Resources */ = {isa = PBXBuildFile; fileRef = 666FF9D914E1512600BF4C6C /* StatusUnknown.png */; };
-		666FF9E114E1560000BF4C6C /* PollWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 666FF9E014E1560000BF4C6C /* PollWatcher.m */; };
 		6676CDC214E1ADBF00F60325 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6676CDC414E1ADBF00F60325 /* Credits.rtf */; };
 		6676CDC814E1AFAF00F60325 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6676CDCA14E1AFAF00F60325 /* Localizable.strings */; };
-		66F035FC14D95F4900AEDA92 /* FileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F035FB14D95F4900AEDA92 /* FileWatcher.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -229,8 +227,6 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* DAFGU_Migration_StatusAppDelegate.m in Sources */,
-				66F035FC14D95F4900AEDA92 /* FileWatcher.m in Sources */,
-				666FF9E114E1560000BF4C6C /* PollWatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
