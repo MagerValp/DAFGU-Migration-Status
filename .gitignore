@@ -5,3 +5,5 @@ DAFGU Migration Status.xcodeproj/xcuserdata
 DAFGUMigrationStatus-*.pkg
 DAFGU_Migration_Status_Prefix.pch
 build
+
+.DS_Store
