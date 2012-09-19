@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+# Kill any running instances.
+if [ "$3" == "/" ]; then
+    /usr/bin/killall "DAFGU Migration Status"
+fi
