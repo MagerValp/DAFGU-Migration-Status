@@ -62,10 +62,9 @@ NSString * const listenerName = @"se.gu.it.dafgu_migration_status";
     NSConnection *conn = [NSConnection defaultConnection];
     [conn setRootObject:self];
     if ([conn registerName:listenerName] == false) {
+        NSLog(@"Can't register connection object with name %@", listenerName);
         [self setStatus:kDMStatusError message:@"Listener failed"];
     }
-    [self.timer invalidate];
-    [self readStatus];
 }
 
 - (void)readStatus
