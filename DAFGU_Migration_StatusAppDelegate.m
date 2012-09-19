@@ -45,7 +45,6 @@ const NSTimeInterval activeToggleInterval = 0.1;
     }
     
     for (i = 0; i < sizeof(statusImage) / sizeof(statusImage[0]); ++i) {
-        //setScalesWhenResized
         [statusImage[i] setSize:NSMakeSize(17, 17)];
     }
     
