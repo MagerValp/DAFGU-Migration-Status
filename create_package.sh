@@ -1,13 +1,13 @@
 #!/bin/bash
 
 
+APPNAME="DAFGU Migration Status.app"
 PKGSCRIPTS=installer_scripts
-PKGVERSION="1.0"
+PKGVERSION=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "build/Release/$APPNAME/Contents/Info.plist")
 PKGID="se.gu.it.DAFGU-Migration-Status"
 PKGFILE="DAFGUMigrationStatus-$PKGVERSION.pkg"
 PKGTARGET="10.5"
 PKGTITLE="DAFGU Migration Status"
-APPNAME="DAFGU Migration Status.app"
 
 PACKAGEMAKER=""
 if [ -e "/Developer/usr/bin/packagemaker" ]; then
