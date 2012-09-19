@@ -11,6 +11,8 @@
 #import "PollWatcher.h"
 
 
+#define kDMStatusAnimFrames 32
+
 @interface DAFGU_Migration_StatusAppDelegate : NSObject {
     NSWindow *window;
     NSMenu *statusMenu;
@@ -18,9 +20,9 @@
     //FileWatcher *watcher;
     PollWatcher *watcher;
     NSTimer *timer;
-    BOOL hasWarnedNotExists;
+    int currentStatus;
     
-    NSImage *statusImage[5];
+    NSImage *statusImage[kDMStatusAnimFrames + 3];
 }
 
 @property (assign) IBOutlet NSWindow *window;
@@ -29,11 +31,13 @@
 //@property (assign) FileWatcher *watcher;
 @property (assign) PollWatcher *watcher;
 @property (assign) NSTimer *timer;
-@property (assign) BOOL hasWarnedNotExists;
+@property (assign) int currentStatus;
 
+- (NSImage *)newBlendWithFraction:(CGFloat)fraction image1:(NSImage *)image1 image2:(NSImage *)image2;
 - (void)startListening;
 - (void)readStatus;
 - (void)setStatus:(int)status message:(NSString *)msg;
+- (void)toggleImageIfActive;
 
 enum {
     kDMStatusUnknown = 0,

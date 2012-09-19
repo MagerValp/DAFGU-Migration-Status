@@ -15,24 +15,34 @@
 @synthesize statusItem;
 @synthesize watcher;
 @synthesize timer;
-@synthesize hasWarnedNotExists;
+@synthesize currentStatus;
 
 
 // Status updates are written to this plist.
 NSString * const plistPath = @"/tmp/DAFGUMigrationStatus.plist";
 // We also listen for status updates to a shared object registered with this name.
 NSString * const listenerName = @"se.gu.it.dafgu_migration_status";
+// The active status image is animated with this interval.
+const NSTimeInterval activeToggleInterval = 0.1;
 
 
 - (void)awakeFromNib
 {
     int i;
+    CGFloat fraction;
     
     statusImage[kDMStatusUnknown] = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"StatusUnknown"]];
     statusImage[kDMStatusOK] = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"StatusOK"]];
     statusImage[kDMStatusError] = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"StatusError"]];
-    statusImage[kDMStatusActive + 0] = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"StatusActive0"]];
-    statusImage[kDMStatusActive + 1] = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"StatusActive1"]];
+	NSImage *active000 = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"StatusActive0"]];
+	NSImage *active100 = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"StatusActive1"]];
+	for (i = 0; i < kDMStatusAnimFrames; i++) {
+        fraction = (CGFloat)i / ((CGFloat)kDMStatusAnimFrames / 2.0);
+        if (fraction >= 1.0) {
+            fraction = 2.0 - fraction;
+        }
+        statusImage[kDMStatusActive + i] = [self newBlendWithFraction:fraction image1:active000 image2:active100];
+    }
     
     for (i = 0; i < sizeof(statusImage) / sizeof(statusImage[0]); ++i) {
         //setScalesWhenResized
@@ -42,9 +52,19 @@ NSString * const listenerName = @"se.gu.it.dafgu_migration_status";
 	statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 	[statusItem setMenu:statusMenu];
 	[statusItem setImage:statusImage[kDMStatusUnknown]];
-	//[statusItem setImage:my_image];
-	//[statusItem setAlternateImage:my_alt_image];
 	[statusItem setHighlightMode:YES];
+}
+
+- (NSImage *)newBlendWithFraction:(CGFloat)fraction image1:(NSImage *)image1 image2:(NSImage *)image2
+{
+	NSImage *blendImage = [image1 copy];
+	NSSize size = [blendImage size];
+	NSRect rect = NSMakeRect(0, 0, size.width, size.height);
+	[blendImage lockFocus];
+	[image2 drawInRect:rect fromRect:rect operation:NSCompositeSourceOver fraction:fraction];
+	[blendImage unlockFocus];
+	
+	return blendImage;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -55,6 +75,8 @@ NSString * const listenerName = @"se.gu.it.dafgu_migration_status";
     }
     // Start listening for status updates.
     [self startListening];
+    // Start timer to animate active image.
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:activeToggleInterval target:self selector:@selector(toggleImageIfActive) userInfo:nil repeats:YES];
 }
 
 - (void)startListening
@@ -114,8 +136,18 @@ NSString * const listenerName = @"se.gu.it.dafgu_migration_status";
 
 - (void)setStatus:(int)status message:(NSString *)msg {
     //NSLog(@"setStatus:%d message:%@", status, msg);
+    self.currentStatus = status;
 	[statusItem setImage:statusImage[status]];
     [[statusMenu itemAtIndex:0] setTitle:NSLocalizedString(msg, @"<DYNAMIC>")];
+}
+
+- (void)toggleImageIfActive {
+    static unsigned int animFrame = 0;
+    
+    if (self.currentStatus == kDMStatusActive) {
+        animFrame = (animFrame + 1) % kDMStatusAnimFrames;
+        [statusItem setImage:statusImage[kDMStatusActive + animFrame]];
+    }
 }
 
 @end
