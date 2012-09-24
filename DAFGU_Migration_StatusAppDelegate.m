@@ -13,14 +13,15 @@
 @synthesize window;
 @synthesize statusMenu;
 @synthesize statusItem;
-@synthesize watcher;
+@synthesize listener;
 @synthesize timer;
 @synthesize currentStatus;
 
 
 // Status updates are written to this plist.
 NSString * const plistPath = @"/tmp/DAFGUMigrationStatus.plist";
-// We also listen for status updates to a shared object registered with this name.
+// We also listen for status updates on a socket in this dir with this name.
+NSString * const listenerDir = @"/tmp";
 NSString * const listenerName = @"se.gu.it.dafgu_migration_status";
 // The active status image is animated with this interval.
 const NSTimeInterval activeToggleInterval = 0.1;
@@ -80,25 +81,28 @@ const NSTimeInterval activeToggleInterval = 0.1;
 
 - (void)startListening
 {
-    NSConnection *conn = [NSConnection defaultConnection];
-    [conn setRootObject:self];
-    if ([conn registerName:listenerName] == false) {
-        NSLog(@"Can't register connection object with name %@", listenerName);
-        [self setStatus:kDMStatusError message:@"Listener failed"];
-    }
+    NSLog(@"startListening");
+    self.listener = [[SocketListener alloc] init];
+    [self.listener listenOnSocketInDir:listenerDir withName:listenerName target:self action:@selector(parseStatus:)];
+    NSLog(@"started listening");
 }
 
 - (void)readStatus
 {
     NSDictionary *plistDict;
-    NSNumber *status;
-    NSString *msg;
-    int statusInt;
-    
     plistDict = [NSPropertyListSerialization propertyListFromData:[NSData dataWithContentsOfFile:plistPath]
                                                  mutabilityOption:0
                                                            format:NULL
                                                  errorDescription:nil];
+    [self parseStatus:plistDict];
+}
+
+- (void)parseStatus:(NSDictionary *)plistDict
+{
+    NSNumber *status;
+    NSString *msg;
+    int statusInt;
+    
     if (plistDict == nil) {
         [self setStatus:kDMStatusUnknown message:@"Can't read plist"];
         return;

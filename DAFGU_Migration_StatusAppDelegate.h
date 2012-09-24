@@ -8,7 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 //#import "FileWatcher.h"
-#import "PollWatcher.h"
+//#import "PollWatcher.h"
+#import "SocketListener.h"
 
 
 #define kDMStatusAnimFrames 32
@@ -17,8 +18,7 @@
     NSWindow *window;
     NSMenu *statusMenu;
     NSStatusItem *statusItem;
-    //FileWatcher *watcher;
-    PollWatcher *watcher;
+    SocketListener *listener;
     NSTimer *timer;
     int currentStatus;
     
@@ -28,14 +28,14 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSMenu *statusMenu;
 @property (assign) NSStatusItem *statusItem;
-//@property (assign) FileWatcher *watcher;
-@property (assign) PollWatcher *watcher;
+@property (assign) SocketListener *listener;
 @property (assign) NSTimer *timer;
 @property (assign) int currentStatus;
 
 - (NSImage *)newBlendWithFraction:(CGFloat)fraction image1:(NSImage *)image1 image2:(NSImage *)image2;
 - (void)startListening;
 - (void)readStatus;
+- (void)parseStatus:(NSDictionary *)plistDict;
 - (void)setStatus:(int)status message:(NSString *)msg;
 - (void)toggleImageIfActive;
 
