@@ -76,6 +76,7 @@
 				66F035FB14D95F4900AEDA92 /* FileWatcher.m */,
 				666FF9DF14E1560000BF4C6C /* PollWatcher.h */,
 				666FF9E014E1560000BF4C6C /* PollWatcher.m */,
+				05BDA0ED1610786C00295B4D /* SocketListener.h */,
 				05BDA0EE1610786C00295B4D /* SocketListener.m */,
 			);
 			name = Classes;
