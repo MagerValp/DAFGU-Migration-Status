@@ -42,15 +42,11 @@
 		666FF9D714E1512600BF4C6C /* StatusError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusError.png; sourceTree = "<group>"; };
 		666FF9D814E1512600BF4C6C /* StatusOK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusOK.png; sourceTree = "<group>"; };
 		666FF9D914E1512600BF4C6C /* StatusUnknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusUnknown.png; sourceTree = "<group>"; };
-		666FF9DF14E1560000BF4C6C /* PollWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollWatcher.h; sourceTree = "<group>"; };
-		666FF9E014E1560000BF4C6C /* PollWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollWatcher.m; sourceTree = "<group>"; };
 		6676CDC114E1AD9E00F60325 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		6676CDC314E1ADBF00F60325 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		6676CDC514E1ADCB00F60325 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = sv; path = sv.lproj/Credits.rtf; sourceTree = "<group>"; };
 		6676CDC914E1AFAF00F60325 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6676CDCB14E1AFB300F60325 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
-		66F035FA14D95F4900AEDA92 /* FileWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileWatcher.h; sourceTree = "<group>"; };
-		66F035FB14D95F4900AEDA92 /* FileWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileWatcher.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* DAFGU_Migration_Status-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DAFGU_Migration_Status-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* DAFGU Migration Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DAFGU Migration Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -72,10 +68,6 @@
 			children = (
 				256AC3D80F4B6AC300CF3369 /* DAFGU_Migration_StatusAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* DAFGU_Migration_StatusAppDelegate.m */,
-				66F035FA14D95F4900AEDA92 /* FileWatcher.h */,
-				66F035FB14D95F4900AEDA92 /* FileWatcher.m */,
-				666FF9DF14E1560000BF4C6C /* PollWatcher.h */,
-				666FF9E014E1560000BF4C6C /* PollWatcher.m */,
 				05BDA0ED1610786C00295B4D /* SocketListener.h */,
 				05BDA0EE1610786C00295B4D /* SocketListener.m */,
 			);
