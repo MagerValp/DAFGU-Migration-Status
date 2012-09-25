@@ -5,3 +5,5 @@
 if [ "$3" == "/" ]; then
     /usr/bin/killall "DAFGU Migration Status"
 fi
+
+exit 0
