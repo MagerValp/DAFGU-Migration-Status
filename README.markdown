@@ -11,6 +11,12 @@ This is a small menu bar application that can change its icon into one of four s
 If you click on it it'll also show a status message. We use it to display the status of the last backup.
 
 
+Compiling
+---------
+
+The project is configured to build a universal app for 10.5+ with Xcode 3.2. If you change to a newer SDK you can also build it on Xcode 4, but then you'll lose support for 10.5 and PPC.
+
+
 Usage
 -----
 
