@@ -26,17 +26,17 @@ NSString * const listenerName = @"se.gu.it.dafgu_migration_status";
 // The active status image is animated with this interval.
 const NSTimeInterval activeToggleInterval = 0.1;
 
-
 - (void)awakeFromNib
 {
     int i;
     CGFloat fraction;
-    
-    statusImage[kDMStatusUnknown] = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"StatusUnknown"]];
-    statusImage[kDMStatusOK] = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"StatusOK"]];
-    statusImage[kDMStatusError] = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"StatusError"]];
-	NSImage *active000 = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"StatusActive0"]];
-	NSImage *active100 = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"StatusActive1"]];
+    NSSize statusSize = NSMakeSize(17, 17);
+	
+    statusImage[kDMStatusUnknown] = [self loadImage:@"StatusUnknown" withSize:statusSize];
+    statusImage[kDMStatusOK] = [self loadImage:@"StatusOK" withSize:statusSize];
+    statusImage[kDMStatusError] = [self loadImage:@"StatusError" withSize:statusSize];
+	NSImage *active000 = [self loadImage:@"StatusActive0" withSize:statusSize];
+	NSImage *active100 = [self loadImage:@"StatusActive1" withSize:statusSize];
 	for (i = 0; i < kDMStatusAnimFrames; i++) {
         fraction = (CGFloat)i / ((CGFloat)kDMStatusAnimFrames / 2.0);
         if (fraction >= 1.0) {
@@ -45,14 +45,22 @@ const NSTimeInterval activeToggleInterval = 0.1;
         statusImage[kDMStatusActive + i] = [self newBlendWithFraction:fraction image1:active000 image2:active100];
     }
     
-    for (i = 0; i < sizeof(statusImage) / sizeof(statusImage[0]); ++i) {
-        [statusImage[i] setSize:NSMakeSize(17, 17)];
-    }
-    
 	statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 	[statusItem setMenu:statusMenu];
 	[statusItem setImage:statusImage[kDMStatusUnknown]];
 	[statusItem setHighlightMode:YES];
+}
+
+- (NSImage *)loadImage:(NSString *)name withSize:(NSSize)size
+{
+	NSImage *sourceImage = [[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:name]] retain];
+	NSImage *scaledImage = [[NSImage alloc] initWithSize:size];
+	[scaledImage lockFocus];
+	[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
+	[sourceImage setSize:size];
+	[sourceImage drawAtPoint:NSZeroPoint fromRect:NSZeroRect operation:NSCompositeCopy fraction:1.0];
+	[scaledImage unlockFocus];
+	return scaledImage;
 }
 
 - (NSImage *)newBlendWithFraction:(CGFloat)fraction image1:(NSImage *)image1 image2:(NSImage *)image2

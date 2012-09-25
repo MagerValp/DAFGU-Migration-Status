@@ -32,6 +32,7 @@
 @property (assign) NSTimer *timer;
 @property (assign) int currentStatus;
 
+- (NSImage *)loadImage:(NSString *)name withSize:(NSSize)size;
 - (NSImage *)newBlendWithFraction:(CGFloat)fraction image1:(NSImage *)image1 image2:(NSImage *)image2;
 - (void)startListening;
 - (void)readStatus;
