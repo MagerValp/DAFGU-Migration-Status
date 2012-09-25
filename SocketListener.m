@@ -19,9 +19,7 @@
 
 - (BOOL)listenOnSocketInDir:(NSString *)dir withName:(NSString *)name target:(id)aTarget action:(SEL)anAction
 {
-    NSLog(@"listenOnSocketInDir");
     NSString *socketPath = [NSString stringWithFormat:@"%@/%@.%08x%08x", dir, name, arc4random(), arc4random()];
-    NSLog(@"creating socket at %@", socketPath);
     self.target = aTarget;
     self.action = anAction;
     self.watchThread = [[NSThread alloc] initWithTarget:self selector:@selector(listenInBackground:) object:socketPath];

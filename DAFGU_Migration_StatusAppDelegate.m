@@ -81,10 +81,8 @@ const NSTimeInterval activeToggleInterval = 0.1;
 
 - (void)startListening
 {
-    NSLog(@"startListening");
     self.listener = [[SocketListener alloc] init];
     [self.listener listenOnSocketInDir:listenerDir withName:listenerName target:self action:@selector(parseStatus:)];
-    NSLog(@"started listening");
 }
 
 - (void)readStatus
