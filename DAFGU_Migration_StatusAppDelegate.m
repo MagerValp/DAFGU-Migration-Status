@@ -144,9 +144,12 @@ const NSTimeInterval activeToggleInterval = 0.1;
 }
 
 - (void)setStatus:(int)status message:(NSString *)msg {
-    //NSLog(@"setStatus:%d message:%@", status, msg);
     self.currentStatus = status;
-	[statusItem setImage:statusImage[status]];
+	if (status == kDMStatusActive) {
+		// Do nothing and let toggleImageIfActive set the image instead.
+	} else {
+		[statusItem setImage:statusImage[status]];
+	}
     [[statusMenu itemAtIndex:0] setTitle:NSLocalizedString(msg, @"<DYNAMIC>")];
 }
 
