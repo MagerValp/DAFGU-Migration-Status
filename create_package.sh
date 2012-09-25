@@ -27,6 +27,7 @@ fi
 
 echo "Packaging $PKGTITLE as $PKGID $PKGVERSION"
 
+rm -f "$PKGFILE"
 pkgroot=`mktemp -d -t dafgumigrationstatus`
 
 echo "Creating directory structure"
